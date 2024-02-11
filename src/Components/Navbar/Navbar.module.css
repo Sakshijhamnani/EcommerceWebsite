@@ -49,3 +49,8 @@ li{
     background-color: aliceblue;
     text-align: center;
 }
+.login{
+    color: aliceblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-right: 40px;
+}

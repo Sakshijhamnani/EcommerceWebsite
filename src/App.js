@@ -13,6 +13,8 @@ import About from './Components/About/About';
 import Home from './Components/Home/Home';
 import ContactUs from './Components/ContactUs/ContactUs';
 import ProductDetail from './Components/ProductDetail/ProductDetail';
+import Login from './Components/AuthForm/AuthForm';
+// import SignUp from './Components/Login/SignUp';
 
 function App() {
   const [cartIsShown,setCartIsShown]=useState(false)
@@ -100,6 +102,8 @@ function App() {
           <Route path='/home' element={<Home/>}/>
           <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/products/:productId' element={<ProductDetail productsArr={productsArr}/>} exact/>
+          <Route path="/login" element={<Login/>}/>
+          {/* <Route path='/signup' element={<SignUp/>}/> */}
         </Routes>
         </BrowserRouter>
       {cartIsShown && <Cart onClose={hideCartHandler}/>}
