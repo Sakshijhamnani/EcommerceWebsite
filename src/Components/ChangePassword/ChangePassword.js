@@ -18,13 +18,14 @@ const ChangePassword = () => {
       body: JSON.stringify({
         idToken: authcontext.token,
         password: enteredNewPassword,
-        returnSecureToken: false
+        returnSecureToken: true
       }),
       headers: {
         'Content-Type': 'application/json'
       }
     })
     .then(res => {
+      alert('Password Changed Succesfully')
       if (!res.ok) {
         throw new Error('Failed to change password');
       }
