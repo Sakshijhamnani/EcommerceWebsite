@@ -1,12 +1,17 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import classes from './AuthForm.module.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import AuthContext from '../../Auth-Context/auth-context';
 
 const AuthForm = () => {
+  const navigate=useNavigate()
+
   const emailInputRef=useRef();
   const passwordInputRef=useRef()
   const [logIn,setLogIn]=useState(true)
   const [isLoading,setIsLoading]=useState(false)
+
+  const authcontext=useContext(AuthContext)
 
   const switchAuthModeHandler=(e)=>{
     e.preventDefault();
@@ -36,15 +41,27 @@ const AuthForm = () => {
         setIsLoading(false)
         if(res.ok){
          console.log(res)
+         return res.json()
         }else{
           return res.json().then((data) => {
             let errorMessage = "Authentication Failed!";
             if (data && data.error.message && data.error.message) {
               errorMessage = data.error.message;
             }
-            alert(errorMessage);
+            // alert(errorMessage);
+            throw new Error(errorMessage)
           });
         }
+      })
+      .then((data)=>{
+        // console.log(data.Response)
+        navigate('/')
+        let idToken=data.idToken
+        console.log(idToken)
+        authcontext.login(data.idToken)
+      })
+      .catch((err)=>{
+        alert(err.message)
       })
       
       
@@ -65,16 +82,27 @@ const AuthForm = () => {
       }).then(res=>{
         setIsLoading(false)
         if(res.ok){
-
+             return res.json()
         }else{
           return res.json().then((data) => {
             let errorMessage = "Authentication Failed!";
             if (data && data.error.message && data.error.message) {
               errorMessage = data.error.message;
             }
-            alert(errorMessage);
+            // alert(errorMessage);
+            throw new Error(errorMessage)
           });
         }
+      })
+      .then((data)=>{
+        console.log(data)
+        navigate('/')
+       let idToken=data.idToken
+       console.log(idToken)
+        authcontext.login(idToken)
+      })
+      .catch((err)=>{
+        alert(err.message)
       })
     }
   }

@@ -14,6 +14,7 @@ import Home from './Components/Home/Home';
 import ContactUs from './Components/ContactUs/ContactUs';
 import ProductDetail from './Components/ProductDetail/ProductDetail';
 import Login from './Components/AuthForm/AuthForm';
+import ChangePassword from './Components/ChangePassword/ChangePassword';
 // import SignUp from './Components/Login/SignUp';
 
 function App() {
@@ -103,6 +104,7 @@ function App() {
           <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/products/:productId' element={<ProductDetail productsArr={productsArr}/>} exact/>
           <Route path="/login" element={<Login/>}/>
+          <Route path='/password' element={<ChangePassword/>}/>
           {/* <Route path='/signup' element={<SignUp/>}/> */}
         </Routes>
         </BrowserRouter>

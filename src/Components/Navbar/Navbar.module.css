@@ -53,4 +53,5 @@ li{
     color: aliceblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-right: 40px;
+    cursor: pointer;
 }
