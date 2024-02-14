@@ -58,7 +58,7 @@ const AuthForm = () => {
         navigate('/')
         let idToken=data.idToken
         console.log(idToken)
-        authcontext.login(data.idToken)
+        authcontext.login(data.idToken,enteredEmail)
       })
       .catch((err)=>{
         alert(err.message)
@@ -99,7 +99,7 @@ const AuthForm = () => {
         navigate('/')
        let idToken=data.idToken
        console.log(idToken)
-        authcontext.login(idToken)
+        authcontext.login(idToken,enteredEmail)
       })
       .catch((err)=>{
         alert(err.message)
