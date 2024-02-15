@@ -4,6 +4,8 @@
     justify-content: space-between;
     background-color: black;
     border-bottom: 2px solid white;
+    /* position: fixed; */
+    /* width: 100%; */
 }
 .list{
    display: flex;
