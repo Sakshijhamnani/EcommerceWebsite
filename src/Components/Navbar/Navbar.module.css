@@ -10,6 +10,7 @@
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
+   list-style-type: none;
    /* list-style: none;
    text-decoration: none; */
 }
@@ -55,3 +56,7 @@ li{
     margin-right: 40px;
     cursor: pointer;
 }
+.list li a {
+    text-decoration: none; /* Remove underline from NavLink */
+    color: inherit; /* Inherit text color from parent */
+  }
